@@ -1,0 +1,28 @@
+ {
+    "name": "Page Visit Reminder",
+    "version": "1.0",
+    "description": "Build an Extension!", 
+    "permissions": ["tabs","activeTab","declarativeContent","storage"],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+      },
+      "page_action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "images/arrow1.png",
+            "32": "images/arrow2.png",
+            "48": "images/arrow3.png",
+            "128": "images/arrow4.png"
+          }
+      },
+      "icons": {
+        "16": "images/arrow1.png",
+        "32": "images/arrow2.png",
+        "48": "images/arrow3.png",
+        "128": "images/arrow4.png"
+      },
+      "options_page": "options.html",
+    "manifest_version": 2
+
+  }
