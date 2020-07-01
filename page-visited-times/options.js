@@ -9,8 +9,11 @@ let button = document.getElementById('submit');
 button.onclick = function() {
   let message = document.getElementById('message');
   message.style.opacity=1;
+  let back = document.getElementById('input').value;
+  chrome.storage.sync.set({color: back}, function() {
+    console.log('color is ' + back);
+  })
   };
-
 
 let clear= document.getElementById('delete');
 
@@ -22,6 +25,3 @@ clear.onclick = function() {
     }
   });
 };
-
-
-// Attribute Freepik

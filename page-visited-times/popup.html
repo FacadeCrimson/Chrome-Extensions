@@ -3,11 +3,10 @@
   <head>
     <style>
       body{
-        width:200px;
+        width:280px;
         font-family: Futura,sans-serif;
         font-size:20px;
-        text-align: justify;
-        text-justify: inter-word;
+        text-align: center;
       }
 
       #container{
@@ -22,14 +21,24 @@
         margin-top:15px;
         border-color: crimson;
         border-radius:15px;
+        color:black;
+      }
+
+      .message{
+        color:skyblue;
       }
     </style>
+
   </head>
   <body>
     <div id="container">
-      <span id="message"></span>
+      <span class="message">You have visited this page:</span>
+      <div id ="counter"></div>
+      <span class="message" id="show">You last visited this page on:</span>
+      <span id="time"></span>
       <button id="clear">Clear</button>
     </div>
+  
     <script src="popup.js"></script>
   </body>
 </html>

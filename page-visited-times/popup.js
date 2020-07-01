@@ -4,19 +4,27 @@
 
 'use strict';
 
+let container = document.getElementById('container');
+chrome.storage.sync.get('color',function(result) {
+  container.style.backgroundColor=result.color;
+});
 
-let message = document.getElementById('message');
+let counter = document.getElementById('counter');
+let show = document.getElementById('show');
+let time = document.getElementById('time');
 
 chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
   let url = tabs[0].url;
 
   chrome.storage.sync.get(url, function(result) {
-    if(result[url] === undefined){
-      message.innerHTML="You have never visited this website before.";
+    if(result[url]["times"] === 1){
+      time.innerHTML="You have never visited this webpage before.";
+      show.style.display="none";
     }  
     else{ 
-      message.innerHTML="You have visited this site "+result[url]+" times."; 
+      time.innerHTML=result[url]["date"];
     }
+    counter.innerHTML=result[url]["times"]+" times"; 
  });
 });
 
@@ -25,8 +33,7 @@ let clear = document.getElementById('clear')
 clear.onclick = function() {
   chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
     let url = tabs[0].url;
-    chrome.storage.sync.set({[url]:0}, function() {});
+    chrome.storage.sync.set({[url]:{"times":0}}, function() {});
   });
   window.location.reload();
-
 };

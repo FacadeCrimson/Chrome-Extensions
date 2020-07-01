@@ -1,7 +1,7 @@
  {
-    "name": "Page Visit Reminder",
+    "name": "Page Visits Counter",
     "version": "1.0",
-    "description": "Build an Extension!", 
+    "description": "Help you record how many times you have visited a certain webpage.", 
     "permissions": ["tabs","activeTab","declarativeContent","storage"],
     "background": {
         "scripts": ["background.js"],
