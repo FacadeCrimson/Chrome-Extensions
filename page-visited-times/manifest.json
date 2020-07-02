@@ -7,14 +7,23 @@
         "scripts": ["background.js"],
         "persistent": false
       },
-      "page_action": {
-        "default_popup": "popup.html",
-        "default_icon": {
-            "16": "images/arrow1.png",
-            "32": "images/arrow2.png",
-            "48": "images/arrow3.png",
-            "128": "images/arrow4.png"
-          }
+      // "page_action": {
+      //   "default_popup": "popup.html",
+      //   "default_icon": {
+      //       "16": "images/arrow1.png",
+      //       "32": "images/arrow2.png",
+      //       "48": "images/arrow3.png",
+      //       "128": "images/arrow4.png"
+      //     }
+      // },
+      "browser_action": {
+        "default_icon": {                    
+          "16": "images/arrow1.png",        
+          "32": "images/arrow2.png",        
+          "48": "images/arrow3.png",        
+          "128": "images/arrow4.png" 
+        },  
+        "default_popup": "popup.html"      
       },
       "icons": {
         "16": "images/arrow1.png",

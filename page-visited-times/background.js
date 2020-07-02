@@ -55,13 +55,19 @@ chrome.tabs.onActivated.addListener(function(){
 
   const current = new Date();
   chrome.storage.sync.get(url, function(result) {
-    if(result[url] === undefined){  
+    if(result[url] === undefined||result[url]["times"]===0){  
       chrome.storage.sync.set({[url]:{"times":1,"date":current.toDateString()}}, function() {});
+      chrome.browserAction.setBadgeText({text: "1"});
+      chrome.browserAction.setBadgeBackgroundColor({color: "#909090"});
+      
     }  
     else{ 
       let n = result[url]["times"] ;
       chrome.storage.sync.set({[url]:{"times":n+1, "date":current.toDateString()}}, function() {});
+      chrome.browserAction.setBadgeBackgroundColor({color: "#FF0000"});
+      chrome.browserAction.setBadgeText({text: (n+1).toString()});
     }
 });
 });
 });
+
