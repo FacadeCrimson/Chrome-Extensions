@@ -50,9 +50,10 @@ chrome.tabs.onActivated.addListener(function(){
   let url = tabs[0].url;
   let host = new URL(url)
   if (!watchlist.includes(host.hostname.substring(4))){
+    chrome.browserAction.setBadgeText({'text': ''  });
     return;
    }
-
+  url =  url.split('?')[0];
   const current = new Date();
   chrome.storage.sync.get(url, function(result) {
     if(result[url] === undefined||result[url]["times"]===0){  
