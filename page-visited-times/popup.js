@@ -15,6 +15,7 @@ let time = document.getElementById('time');
 
 chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
   let url = tabs[0].url;
+  url =  url.split('?')[0];
 
   chrome.storage.sync.get(url, function(result) {
     if(result[url]["times"] === 1){
@@ -33,6 +34,7 @@ let clear = document.getElementById('clear')
 clear.onclick = function() {
   chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
     let url = tabs[0].url;
+    url =  url.split('?')[0];
     chrome.storage.sync.set({[url]:{"times":0}}, function() {});
   });
   window.location.reload();
