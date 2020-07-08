@@ -18,7 +18,7 @@ button.onclick = function() {
 let clear= document.getElementById('delete');
 
 clear.onclick = function() {
-  chrome.storage.sync.clear(function() {
+  chrome.storage.local.clear(function() {
     var error = chrome.runtime.lastError;
     if (error) {
         console.error(error);

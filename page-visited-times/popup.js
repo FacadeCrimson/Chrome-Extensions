@@ -17,7 +17,7 @@ chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
   let url = tabs[0].url;
   url =  url.split('?')[0];
 
-  chrome.storage.sync.get(url, function(result) {
+  chrome.storage.local.get(url, function(result) {
     if(result[url]["times"] === 1){
       time.innerHTML="You have never visited this webpage before.";
       show.style.display="none";
@@ -35,7 +35,7 @@ clear.onclick = function() {
   chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
     let url = tabs[0].url;
     url =  url.split('?')[0];
-    chrome.storage.sync.set({[url]:{"times":0}}, function() {});
+    chrome.storage.local.set({[url]:{"times":0}}, function() {});
   });
   window.location.reload();
 };
