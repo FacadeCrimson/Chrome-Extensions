@@ -11,33 +11,6 @@ chrome.runtime.onInstalled.addListener(function() {
   //     conditions: [new chrome.declarativeContent.PageStateMatcher({
   //       pageUrl: {hostContains: 'joinhandshake.com'},
   //     }),
-  //     new chrome.declarativeContent.PageStateMatcher({
-  //       pageUrl: {hostContains: 'indeed.com'},
-  //     }),
-  //     new chrome.declarativeContent.PageStateMatcher({
-  //       pageUrl: {hostContains: 'linkedin.com'},
-  //     }),
-  //     new chrome.declarativeContent.PageStateMatcher({
-  //       pageUrl: {hostContains: 'dice.com'},
-  //     }),
-  //     new chrome.declarativeContent.PageStateMatcher({
-  //       pageUrl: {hostContains: 'careerbuilder.com'},
-  //     }),
-  //     new chrome.declarativeContent.PageStateMatcher({
-  //       pageUrl: {hostContains: 'monster.com'},
-  //     }),
-  //     new chrome.declarativeContent.PageStateMatcher({
-  //       pageUrl: {hostContains: 'glassdoor.com'},
-  //     }),
-  //     new chrome.declarativeContent.PageStateMatcher({
-  //       pageUrl: {hostContains: 'ziprecruiter.com'},
-  //     }),
-  //     new chrome.declarativeContent.PageStateMatcher({
-  //       pageUrl: {hostContains: 'simplyhired.com'},
-  //     }),
-  //     new chrome.declarativeContent.PageStateMatcher({
-  //       pageUrl: {hostContains: 'upwork.com'},
-  //     })
   //     ],
   //         actions: [new chrome.declarativeContent.ShowPageAction()]
   //   }]);
@@ -75,4 +48,3 @@ chrome.tabs.onActivated.addListener(function(){
 });
 });
 });
-

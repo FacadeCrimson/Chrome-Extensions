@@ -29,6 +29,24 @@ chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
  });
 });
 
+let content = document.getElementById('content');
+chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
+  chrome.tabs.sendMessage(tabs[0].id,{method: "getText"}, function(response) {
+    if(response.method=="getText"){
+        var message=""
+        if(response.data.includes("clear")){
+          message=message+"Contains clear\n"
+        }
+        if(response.data.includes("citizen")){
+          message=message+"Contains citizen\n"
+        }
+        content.innerText=message;
+    }
+})
+
+}
+);
+
 let clear = document.getElementById('clear')
 
 clear.onclick = function() {
