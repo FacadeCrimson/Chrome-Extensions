@@ -34,16 +34,19 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
   chrome.tabs.sendMessage(tabs[0].id,{method: "getText"}, function(response) {
     if(response.method=="getText"){
         var message=""
-        if(response.data.includes("clear")){
+        const data = response.data.toLowerCase()
+        if(data.includes("clear")){
           message=message+"Contains clear\n"
         }
-        if(response.data.includes("citizen")){
+        if(data.includes("citizen")){
           message=message+"Contains citizen\n"
+        }
+        if(data.includes("visa")){
+          message=message+"Contains visa\n"
         }
         content.innerText=message;
     }
 })
-
 }
 );
 

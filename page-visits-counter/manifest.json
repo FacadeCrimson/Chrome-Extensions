@@ -1,7 +1,7 @@
  {
     "name": "Page Visits Counter",
     "version": "1.0",
-    "description": "Help you record how many times you have visited a certain webpage.", 
+    "description": "Record how many times you have visited a certain webpage.", 
     "permissions": ["tabs","activeTab","declarativeContent","storage"],
     "background": {
         "scripts": ["background.js"],
@@ -16,15 +16,6 @@
         "js": ["content.js"]
         }
     ],
-      // "page_action": {
-      //   "default_popup": "popup.html",
-      //   "default_icon": {
-      //       "16": "images/arrow1.png",
-      //       "32": "images/arrow2.png",
-      //       "48": "images/arrow3.png",
-      //       "128": "images/arrow4.png"
-      //     }
-      // },
       "browser_action": {
         "default_icon": {                    
           "16": "images/arrow1.png",        
