@@ -69,3 +69,9 @@ stop.onclick = function() {
     chrome.storage.local.set({state:"start"},function() { window.location.reload();})
   }
 };
+
+let option = document.getElementById('option')
+
+option.onclick = function() {
+  chrome.tabs.create({ 'url': 'chrome://extensions/?options=' + chrome.runtime.id });
+};

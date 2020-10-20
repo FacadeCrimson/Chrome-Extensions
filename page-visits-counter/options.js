@@ -35,8 +35,8 @@ let wordlist = document.getElementById("wordlist")
 chrome.storage.sync.get('filter',function(result) {
   if(result.filter.length>0){
       result.filter.map((v)=>{
-      let x = document.createElement('li')
-      x.innerText = v + '\xa0\xa0\xa0'
+      let x = document.createElement('div')
+      x.innerText = v
       let button = document.createElement('button')
       button.classList.add("delete")
       button.id = v
@@ -53,7 +53,7 @@ chrome.storage.sync.get('filter',function(result) {
       wordlist.appendChild(x)})
   }
   else{
-    let s = document.createElement("li")
+    let s = document.createElement("div")
     s.innerText = "No words yet!"
     wordlist.appendChild(s)
   }
