@@ -55,3 +55,17 @@ clear.onclick = function() {
   });
   window.location.reload();
 };
+
+let stop = document.getElementById('stop');
+chrome.storage.local.get("state",function(result) {
+  stop.innerText = result.state==="start"?"Stop":"Start"
+})
+
+stop.onclick = function() {
+  if(stop.innerText==="Stop"){
+    chrome.storage.local.set({state:"stop"},function() { window.location.reload();})
+  }
+  else{
+    chrome.storage.local.set({state:"start"},function() { window.location.reload();})
+  }
+};
