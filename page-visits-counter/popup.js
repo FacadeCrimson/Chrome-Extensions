@@ -30,25 +30,20 @@ chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
 });
 
 let content = document.getElementById('content');
+chrome.storage.sync.get("filter",function(result) {
 chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
   chrome.tabs.sendMessage(tabs[0].id,{method: "getText"}, function(response) {
     if(response.method=="getText"){
         var message=""
         const data = response.data.toLowerCase()
-        if(data.includes("clear")){
-          message=message+"Contains clear\n"
-        }
-        if(data.includes("citizen")){
-          message=message+"Contains citizen\n"
-        }
-        if(data.includes("visa")){
-          message=message+"Contains visa\n"
-        }
+          for(let x of result.filter){
+            if(data.includes(x)){
+              message=message+`Contains ${x}\n`
+            }
+          }
         content.innerText=message;
     }
-})
-}
-);
+}) }) });
 
 let clear = document.getElementById('clear')
 

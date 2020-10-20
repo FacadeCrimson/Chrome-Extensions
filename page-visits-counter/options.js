@@ -4,12 +4,16 @@
 
 'use strict';
 
-let button = document.getElementById('submit');
+let button1 = document.getElementById('colorsubmit');
 
-button.onclick = function() {
+button1.onclick = function() {
   let message = document.getElementById('message');
   message.style.opacity=1;
-  let back = document.getElementById('input').value;
+  var myInterval = setInterval(function(){
+    message.style.opacity=0;
+    clearInterval(myInterval);
+  },2000)
+  let back = document.getElementById('colorinput').value;
   chrome.storage.sync.set({color: back}, function() {
     console.log('color is ' + back);
   })
@@ -25,3 +29,44 @@ clear.onclick = function() {
     }
   });
 };
+
+let wordlist = document.getElementById("wordlist")
+
+chrome.storage.sync.get('filter',function(result) {
+  if(result.filter.length>0){
+      result.filter.map((v)=>{
+      let x = document.createElement('li')
+      x.innerText = v + '\xa0\xa0\xa0'
+      let button = document.createElement('button')
+      button.classList.add("delete")
+      button.id = v
+      button.innerText = "x"
+      button.onclick=function(e){
+        chrome.storage.sync.get('filter',function(result) {
+          let newFilter = result.filter
+          newFilter = newFilter.filter(item => item !== e.target.id)
+          chrome.storage.sync.set({filter: newFilter}, function() {
+          location.reload()
+        })})
+      }
+      x.appendChild(button)
+      wordlist.appendChild(x)})
+  }
+  else{
+    let s = document.createElement("li")
+    s.innerText = "No words yet!"
+    wordlist.appendChild(s)
+  }
+});
+
+let button2 = document.getElementById('filtersubmit');
+
+button2.onclick = function() {
+  let back = document.getElementById('filterinput').value;
+  chrome.storage.sync.get('filter',function(result) {
+      let newFilter = result.filter
+      newFilter.push(back) 
+      chrome.storage.sync.set({filter: newFilter}, function() {
+      location.reload()
+    })
+})};

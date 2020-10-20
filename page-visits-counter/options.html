@@ -8,14 +8,14 @@
       #title{
         font-size: 2vw;
         margin:auto;
-        margin-top:15%;
+        margin-top:5%;
       }
-      #input{
+      .input{
         width:15vw;
         margin:auto;
       }
 
-      #submit{
+      .submit{
         margin-left:2vw;
         border-radius: 5px;
       }
@@ -31,7 +31,13 @@
       #clear{
         font-size:2vw;
         margin:auto;
-        margin-top:20%;
+        margin-top:5%;
+      }
+
+      #filter{
+        font-size:2vw;
+        margin:auto;
+        margin-top:5%;
       }
 
       #delete{
@@ -44,13 +50,19 @@
         background-color: #606060;
       }
 
+      #wordlist{
+        list-style-type: none;
+        font-size:1vw;
+      }
+
     </style>
   </head>
   <body>
-    <div id="title">Change Background Color</div>
     <div id="message">Your change has been submitted!</div>
-    <div><input type="color" id="input"><input type="submit" id="submit"></div>
-    <div><div id="clear">Clear all visits counter</div><button id="delete">Clear</button></div>
+    <div id="title">Change Background Color   <div><input type="color" class="input" id="colorinput"><input type="submit" class="submit" id="colorsubmit"></div></div>
+    <div id="filter">Add Filter Word <div><input type="text" class="input" id="filterinput"><input type="submit" class="submit" id="filtersubmit"></div></div>
+    <div><ul id="wordlist"></ul></div>
+    <div id="clear">Clear all visits counter</div><button id="delete">Clear</button>
   </body>
   <script src="options.js"></script>
 </html>

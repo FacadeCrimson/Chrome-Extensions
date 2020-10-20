@@ -5,6 +5,7 @@
 
 chrome.runtime.onInstalled.addListener(function() {
   chrome.storage.local.set({color: '#FFFFFF'}, function() {});
+  chrome.storage.sync.set({filter:[]},function() {})
 });
 
 chrome.tabs.onActivated.addListener(function(){
